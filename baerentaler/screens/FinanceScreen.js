@@ -1,27 +1,39 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export default function FinanceScreen() {
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+    <View style={styles.container}>
+      <ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 FinanceScreen.navigationOptions = {
-  title: 'Finance',
+  title: 'Finanzen',
 };
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 50,
+    marginLeft:30,
+    marginRight: 30,
     flex: 1,
-    paddingTop: 15,
     backgroundColor: '#fff',
   },
+  title: {
+    alignItems: "center"
+  },
+  fonts: {
+    fontSize: 50
+  }
 });

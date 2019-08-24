@@ -10,14 +10,13 @@ import {
   View,
 } from 'react-native';
 
+import { EventScreen } from '../screens/EventScreen';
+import { StandMonthScreen } from '../screens/StandMonthScreen';
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.title}>
-        <Text style={styles.fonts}>Home</Text>
-      </View>
       <ScrollView
         style={styles.contentContainer}>
         <View style={styles.info}>
@@ -50,30 +49,24 @@ export default function HomeScreen() {
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+  title: 'Home',
 };
 
 function goToStand() {
-  this.props.navigation.navigate('EventScreen')
+  this.props.navigation.navigate('EventScreen');
 }
 
 function goToEvent() {
-  this.props.navigation.navigate('StandMonth')
+  this.props.navigation.navigate('EventScreen');
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
+    marginTop: 30,
     marginLeft:30,
     marginRight: 30,
     flex: 1,
     backgroundColor: '#fff',
-  },
-  title: {
-    alignItems: "center"
-  },
-  fonts: {
-    fontSize: 50
   },
   info: {
     alignItems: "center",
