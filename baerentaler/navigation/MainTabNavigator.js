@@ -7,7 +7,6 @@ import AboScreen from '../screens/AboScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ProductScreen from '../screens/ProductScreen';
 import HomeScreen from '../screens/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -92,38 +91,10 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const ProfileStack = createStackNavigator(
-  {
-    Profile: ProfileScreen,
-  },
-  config
-);
-
-ProfileStack.navigationOptions = {
-  tabBarLabel: 'Händler',
-  tabBarOptions: {
-    activeTintColor: '#CC0033',
-  },
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      color={'#CC0033'}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-};
-
-ProfileStack.path = '';
-
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ExploreStack,
   AboStack,
-  ProfileStack,
 });
 
 tabNavigator.path = '';
