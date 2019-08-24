@@ -1,31 +1,89 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
-export default function ExploreScreen() {
-  return (
-    <View style={styles.container}>
-      <TextInput
-        fontSize="20"
-        style={styles.searchField}
-        onChangeText={(text) => this.setState({ text })} />
-      <FlatList
-        data={[
-          { key: 'Devin' },
-          { key: 'Dan' },
-          { key: 'Dominic' },
-          { key: 'Jackson' },
-          { key: 'James' },
-          { key: 'Joel' },
-          { key: 'John' },
-          { key: 'Jillian' },
-          { key: 'Jimmy' },
-          { key: 'Julie' },
-        ]}
-        renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
-      />
-    </View>
-  );
+export default class ExploreScreen extends React.Component {
+  state = {
+    search: '',
+  };
+
+  updateSearch = search => {
+    this.setState({ search });
+  };
+
+  render() {
+    const { search } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <SearchBar
+          placeholder="Type Here..."
+          onChangeText={this.updateSearch}
+          value={search} />
+        <FlatList
+          data={[
+            {
+              key: '0',
+              name: 'Karotten',
+              producer: 'Max Knecht, Emmental',
+              price: '5BT pro kg',
+              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+            },
+            {
+              key: '1',
+              name: 'Karotten',
+              producer: 'Max Knecht, Emmental',
+              price: '5BT pro kg',
+              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+            },
+            {
+              key: '2',
+              name: 'Karotten',
+              producer: 'Max Knecht, Emmental',
+              price: '5BT pro kg',
+              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+            },
+            {
+              key: '3',
+              name: 'Karotten',
+              producer: 'Max Knecht, Emmental',
+              price: '5BT pro kg',
+              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+            },
+            {
+              key: '4',
+              name: 'Karotten',
+              producer: 'Max Knecht, Emmental',
+              price: '5BT pro kg',
+              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+            },
+            {
+              key: '5',
+              name: 'Karotten',
+              producer: 'Max Knecht, Emmental',
+              price: '5BT pro kg',
+              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+            },
+            {
+              key: '6',
+              name: 'Karotten',
+              producer: 'Max Knecht, Emmental',
+              price: '5BT pro kg',
+              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+            },
+          ]} renderItem={({ item }) =>
+            <View style={styles.item}>
+              <Image
+                style={styles.itemImage}
+                source={{ uri: item.imageUrl }} />
+              <Text style={styles.itemName}>{item.name} von {item.producer}</Text>
+              <Text style={styles.itemPrice}>{item.price}</Text>
+            </View>
+          }
+        />
+      </View>
+    );
+  }
 }
 
 ExploreScreen.navigationOptions = {
@@ -45,8 +103,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#CC0033',
   },
   item: {
+    margin: 10,
     padding: 10,
     fontSize: 18,
-    height: 44,
+    backgroundColor: '#C4CCD3',
+  },
+  itemImage: {
+    width: '100%',
+    height: 130,
+  },
+  itemName: {
+    fontSize: 20,
+  },
+  itemPrice: {
+    fontSize: 15,
+    color: '#CC0033',
   },
 })
