@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Image, Button } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -16,7 +16,7 @@ export default class ExploreScreen extends React.Component {
     const { search } = this.state;
 
     return (
-      <View style={styles.container}>
+      <View>
         <SearchBar
           placeholder="Type Here..."
           onChangeText={this.updateSearch}
@@ -90,16 +90,10 @@ export default class ExploreScreen extends React.Component {
 }
 
 ExploreScreen.navigationOptions = {
-  title: 'Endtecken',
+  title: 'Entdecken',
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    flex: 1,
-  },
   searchField: {
     height: 40,
     marginHorizontal: 30,
