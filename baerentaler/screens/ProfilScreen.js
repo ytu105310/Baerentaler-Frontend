@@ -31,10 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   info: {
-    alignItems: "center",
     marginBottom: 40,
-    borderWidth: 1,
-    borderColor: "black",
     paddingBottom: 30
   },
 });

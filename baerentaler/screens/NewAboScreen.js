@@ -1,26 +1,25 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+    Image,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+  } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-export default function EventScreen() {
+export default function NewAboScreen() {
   return (
     <ScrollView style={styles.container}>
       <Text>Test</Text>
-      <ExpoLinksView />
     </ScrollView>
   );
 }
 
-EventScreen.navigationOptions = {
-  title: 'Event',
+NewAboScreen.navigationOptions = {
+  title: 'New Abo',
 };
 
 const styles = StyleSheet.create({

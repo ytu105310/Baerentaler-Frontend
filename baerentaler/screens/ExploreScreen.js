@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 
-export default function ExploreScreen() {
+export default function ExploreScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.search}>
@@ -19,7 +19,8 @@ export default function ExploreScreen() {
       <ScrollView style={styles.info}>
         {/* {dataList.map(r =>  */}
           <View>
-            <TouchableOpacity onPress={goToStand()}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('InfoStand', {data: r})}> */}
+            <TouchableOpacity onPress={() => navigation.navigate('InfoStand')}>
             <Image
               source={require('../assets/images/robot-dev.png')
               }
@@ -36,12 +37,8 @@ export default function ExploreScreen() {
 }
 
 ExploreScreen.navigationOptions = {
-  title: 'Profil',
+  title: 'Endtecken',
 };
-
-function goToStand() {
-  // this.props.navigation.navigate('EventScreen');
-}
 
 const styles = StyleSheet.create({
   container: {

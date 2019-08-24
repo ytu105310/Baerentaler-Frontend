@@ -8,7 +8,10 @@ import AboScreen from '../screens/AboScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import FinanceScreen from '../screens/FinanceScreen';
 import ProfilScreen from '../screens/ProfilScreen';
-import EventScreen from '../screens/EventScreen'
+import EventScreen from '../screens/EventScreen';
+import StandMonthScreen from '../screens/StandMonthScreen';
+import NewAboScreen from '../screens/NewAboScreen';
+import InfoStandScreen from '../screens/InfoStand';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -19,6 +22,7 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Event: EventScreen,
+    StandMonth: StandMonthScreen
   },
   config
 );
@@ -42,6 +46,8 @@ HomeStack.path = '';
 const ExploreStack = createStackNavigator(
   {
     Explore: ExploreScreen,
+    InfoStand: InfoStandScreen,
+    NewAbo: NewAboScreen
   },
   config
 );

@@ -10,17 +10,13 @@ import {
   View,
 } from 'react-native';
 
-import { EventScreen } from '../screens/EventScreen';
-import { StandMonthScreen } from '../screens/StandMonthScreen';
-import { MonoText } from '../components/StyledText';
-
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView
         style={styles.contentContainer}>
         <View style={styles.info}>
-          <TouchableOpacity onPress={() => navigation.navigate('StandMonthScreen')} style={styles.helpLink}>
+          <TouchableOpacity onPress={() => navigation.navigate('StandMonth')} style={styles.helpLink}>
             <Image
               source={require('../assets/images/robot-dev.png')
               }
@@ -51,14 +47,6 @@ export default function HomeScreen({ navigation }) {
 HomeScreen.navigationOptions = {
   title: 'Home',
 };
-
-// function goToStand() {
-//   this.props.navigation.navigate('EventScreen');
-// }
-
-// function goToEvent() {
-//   this.props.navigation.navigate('EventScreen');
-// }
 
 const styles = StyleSheet.create({
   container: {
