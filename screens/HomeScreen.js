@@ -4,10 +4,8 @@ import {
   View,
   Text,
   Image,
-  ScrollView,
   TouchableOpacity
 } from 'react-native';
-import { Dimensions } from 'react-native'
 import { LineChart } from 'react-native-chart-kit'
 import { Overlay } from "react-native-elements";
 import Colors from '../constants/Colors';
@@ -70,41 +68,40 @@ export default class HomeScreen extends React.Component {
           </TouchableOpacity>
         </View>
         <View style={styles.chartWrapper}>
-          <View>
-            <LineChart
-              data={{
-                labels: ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun'],
-                datasets: [{
-                  data: [
-                    Math.random() * 30,
-                    Math.random() * 30,
-                    Math.random() * 30,
-                    Math.random() * 30,
-                    Math.random() * 30,
-                    Math.random() * 30
-                  ]
-                }]
-              }}
-              width={290} // from react-native
-              height={220}
-              yAxisLabel={'Kg '}
-              chartConfig={{
-                backgroundColor: '#C4CCD3',
-                backgroundGradientFrom: '#C4CCD3',
-                backgroundGradientTo: '#C4CCD3',
-                decimalPlaces: 2, // optional, defaults to 2dp
-                color: (opacity = 1) => `rgba(204, 0, 51, ${opacity})`,
-                style: {
-                  borderRadius: 16
-                }
-              }}
-              bezier
-              style={{
-                marginVertical: 8,
+          <LineChart
+            data={{
+              labels: ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun'],
+              datasets: [{
+                data: [
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30
+                ]
+              }]
+            }}
+            width={290} // from react-native
+            height={220}
+            yAxisLabel={'Kg '}
+            chartConfig={{
+              backgroundColor: '#C4CCD3',
+              backgroundGradientFrom: '#C4CCD3',
+              backgroundGradientTo: '#C4CCD3',
+              decimalPlaces: 2, // optional, defaults to 2dp
+              color: (opacity = 1) => `rgba(204, 0, 51, ${opacity})`,
+              style: {
                 borderRadius: 16
-              }}
-            />
-          </View>
+              }
+            }}
+            bezier
+            style={{
+              marginVertical: 8,
+              borderRadius: 16
+            }}
+          />
+          <Text>Gesparrte CO₂-Emissionen</Text>
         </View>
       </View>
     );
