@@ -24,19 +24,17 @@ export default class SignInScreen extends React.Component {
         <View style={styles.inputArea}>
           <Text style={styles.text}>Benutzername:</Text>
           <TextInput
-            fontSize="20"
             style={styles.textField}
             onChangeText={(text) => this.setState({ text })} />
         </View>
         <View style={styles.inputArea}>
           <Text style={styles.text}>Passwort:</Text>
           <TextInput
-            fontSize="20"
             style={styles.textField}
             onChangeText={(text) => this.setState({ text })} />
         </View>
         <View style={styles.button}>
-          <Button title="Sign in!" onPress={this._signInAsync} />
+          <Button title='Sign in!' onPress={this._signInAsync} />
         </View>
         </ScrollView>
       </View>
@@ -54,8 +52,8 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     margin: 60,
-    flexDirection: "row",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignSelf: 'center',
   },
   inputArea: {
@@ -63,10 +61,11 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   text: {
-    fontSize: 25,
+    fontSize: 18,
     marginBottom: 10,
   },
   textField: {
+    fontSize: 18,
     height: 50,
     borderColor: 'gray',
     borderWidth: 2,
@@ -76,28 +75,3 @@ const styles = StyleSheet.create({
     marginTop: 30,
   }
 });
-
-
-  // class HomeScreen extends React.Component {
-  //   static navigationOptions = {
-  //     title: 'Welcome to the app!',
-  //   };
-
-  //   render() {
-  //     return (
-  //       <View>
-  //         <Button title="Show me more of the app" onPress={this._showMoreApp} />
-  //         <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
-  //       </View>
-  //     );
-  //   }
-
-  //   _showMoreApp = () => {
-  //     this.props.navigation.navigate('Other');
-  //   };
-
-  //   _signOutAsync = async () => {
-  //     await AsyncStorage.clear();
-  //     this.props.navigation.navigate('Auth');
-  //   };
-  // }

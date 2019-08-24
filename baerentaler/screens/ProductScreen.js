@@ -1,8 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text, Image, TextInput, FlatList, Button } from 'react-native';
 
-import MapView from 'react-native-maps'
-
 export default class ProductScreen extends React.Component {
     constructor(props) {
         super(props);

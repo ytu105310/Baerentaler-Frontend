@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginHorizontal: 15,
     padding: 10,
-    fontSize: 18,
+    fontSize: 14,
     backgroundColor: '#C4CCD3',
     flexDirection: "row",
     justifyContent: "space-between"
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     height: 6,
   },
   itemName: {
-    fontSize: 20,
+    fontSize: 16,
   },
   itemPrice: {
     fontSize: 15,
