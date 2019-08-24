@@ -64,40 +64,47 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.payText}>Bezahlen</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.chartForm}>
-          <LineChart
-            data={{
-              labels: ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun'],
-              datasets: [{
-                data: [
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30
-                ]
-              }]
-            }}
-            width={290} // from react-native
-            height={220}
-            yAxisLabel={'Kg '}
-            chartConfig={{
-              backgroundColor: '#C4CCD3',
-              backgroundGradientFrom: '#C4CCD3',
-              backgroundGradientTo: '#C4CCD3',
-              decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(204, 0, 51, ${opacity})`,
-              style: {
+        <View style={styles.latestTransactionsWrapper}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Transactions')}>
+            <Text style={styles.latestTransactionsText}>Letzte Transaktionen</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.chartWrapper}>
+          <View>
+            <LineChart
+              data={{
+                labels: ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun'],
+                datasets: [{
+                  data: [
+                    Math.random() * 30,
+                    Math.random() * 30,
+                    Math.random() * 30,
+                    Math.random() * 30,
+                    Math.random() * 30,
+                    Math.random() * 30
+                  ]
+                }]
+              }}
+              width={290} // from react-native
+              height={220}
+              yAxisLabel={'Kg '}
+              chartConfig={{
+                backgroundColor: '#C4CCD3',
+                backgroundGradientFrom: '#C4CCD3',
+                backgroundGradientTo: '#C4CCD3',
+                decimalPlaces: 2, // optional, defaults to 2dp
+                color: (opacity = 1) => `rgba(204, 0, 51, ${opacity})`,
+                style: {
+                  borderRadius: 16
+                }
+              }}
+              bezier
+              style={{
+                marginVertical: 8,
                 borderRadius: 16
-              }
-            }}
-            bezier
-            style={{
-              marginVertical: 8,
-              borderRadius: 16
-            }}
-          />
+              }}
+            />
+          </View>
         </View>
       </View>
     );
@@ -175,7 +182,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: -33,
+    marginTop: -10,
   },
   latestTransactionsText: {
     textDecorationLine: 'underline',
@@ -184,9 +191,5 @@ const styles = StyleSheet.create({
     flex: 4,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  chartForm: {
-    marginLeft: 15,
-    marginRight: 15
-  },
+  }
 });
