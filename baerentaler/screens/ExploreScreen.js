@@ -91,6 +91,7 @@ export default class ExploreScreen extends React.Component {
 
 ExploreScreen.navigationOptions = {
   title: 'Entdecken',
+  headerTintColor: '#CC0033'
 };
 
 const styles = StyleSheet.create({

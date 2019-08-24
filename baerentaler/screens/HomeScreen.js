@@ -22,6 +22,7 @@ export default class HomeScreen extends React.Component {
 
 HomeScreen.navigationOptions = {
   title: 'Home',
+  headerTintColor: '#CC0033',
 };
 
 const styles = StyleSheet.create({

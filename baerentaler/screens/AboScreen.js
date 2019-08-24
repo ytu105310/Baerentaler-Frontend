@@ -95,6 +95,7 @@ export default class AboScreen extends React.Component {
 
 AboScreen.navigationOptions = {
   title: 'Meine Abos',
+  headerTintColor: '#CC0033',
 };
 
 const styles = StyleSheet.create({

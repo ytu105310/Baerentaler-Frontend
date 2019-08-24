@@ -12,6 +12,7 @@ export default class ProductScreen extends React.Component {
 
 ProductScreen.navigationOptions = {
     title: 'Produkt',
+    headerTintColor: '#CC0033',
 };
 
 const styles = StyleSheet.create({
