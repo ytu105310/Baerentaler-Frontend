@@ -1,8 +1,5 @@
 import React from 'react';
 import {
-  ActivityIndicator,
-  AsyncStorage,
-  StatusBar,
   Text,
   StyleSheet,
   ScrollView,
@@ -11,7 +8,6 @@ import {
   TextInput,
   Image,
 } from 'react-native';
-import { AuthSession } from 'expo';
 
 export default class SignInScreen extends React.Component {
   static navigationOptions = {
@@ -48,7 +44,7 @@ export default class SignInScreen extends React.Component {
   }
 
   _signInAsync = async () => {
-    await AsyncStorage.setItem('userToken', 'abc');
+    //await AsyncStorage.setItem('userToken', 'abc');
     this.props.navigation.navigate('App');
   };
 }

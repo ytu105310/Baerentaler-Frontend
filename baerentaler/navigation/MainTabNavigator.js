@@ -6,7 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import AboScreen from '../screens/AboScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ProductScreen from '../screens/ProductScreen';
-import FinanceScreen from '../screens/FinanceScreen';
+import HomeScreen from '../screens/HomeScreen';
 import ProfilScreen from '../screens/ProfilScreen';
 
 const config = Platform.select({
@@ -67,18 +67,23 @@ AboStack.navigationOptions = {
 
 AboStack.path = '';
 
-const FinanceStack = createStackNavigator(
+const HomeStack = createStackNavigator(
   {
-    Finance: FinanceScreen,
+    Home: HomeScreen,
   },
   config
 );
 
+<<<<<<< HEAD
 FinanceStack.navigationOptions = {
   tabBarLabel: 'CO2',
   tabBarOptions: {
     activeTintColor: '#CC0033',
   },
+=======
+HomeStack.navigationOptions = {
+  tabBarLabel: 'Home',
+>>>>>>> 0cb23888f2d191bd6b2e5225095181e70d0837ae
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -87,7 +92,7 @@ FinanceStack.navigationOptions = {
   ),
 };
 
-FinanceStack.path = '';
+HomeStack.path = '';
 
 const ProfilStack = createStackNavigator(
   {
@@ -117,9 +122,9 @@ ProfilStack.navigationOptions = {
 ProfilStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
+  HomeStack,
   ExploreStack,
   AboStack,
-  FinanceStack,
   ProfilStack,
 });
 

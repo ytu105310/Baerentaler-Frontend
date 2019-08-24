@@ -1,23 +1,23 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 
-export default class FinanceScreen extends React.Component {
+export default class ProductScreen extends React.Component {
     render() {
         return (
             <ScrollView style={styles.container}>
-                {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-                <ExpoLinksView />
             </ScrollView>
         );
     }
 }
 
+<<<<<<< HEAD
 FinanceScreen.navigationOptions = {
     title: 'Product',
     headerTintColor: '#CC0033'
+=======
+ProductScreen.navigationOptions = {
+    title: 'Produkt',
+>>>>>>> 0cb23888f2d191bd6b2e5225095181e70d0837ae
 };
 
 const styles = StyleSheet.create({
