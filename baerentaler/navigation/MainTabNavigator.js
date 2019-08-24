@@ -8,6 +8,7 @@ import AboScreen from '../screens/AboScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import FinanceScreen from '../screens/FinanceScreen';
 import ProfilScreen from '../screens/ProfilScreen';
+import EventScreen from '../screens/EventScreen'
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -17,6 +18,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Event: EventScreen,
   },
   config
 );
@@ -129,12 +131,18 @@ ProfilStack.navigationOptions = {
 
 ProfilStack.path = '';
 
+const AppNavigator = createStackNavigator(
+  {
+    Event: EventScreen,
+  },
+);
+
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ExploreStack,
   AboStack,
   FinanceStack,
-  ProfilStack
+  ProfilStack,
 });
 
 tabNavigator.path = '';

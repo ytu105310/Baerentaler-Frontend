@@ -1,16 +1,22 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export default function ProfilScreen() {
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+    <View style={styles.container}>
+      <ScrollView style={styles.info}>
+      </ScrollView>
+    </View>
   );
 }
 
@@ -23,5 +29,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  info: {
+    alignItems: "center",
+    marginBottom: 40,
+    borderWidth: 1,
+    borderColor: "black",
+    paddingBottom: 30
   },
 });

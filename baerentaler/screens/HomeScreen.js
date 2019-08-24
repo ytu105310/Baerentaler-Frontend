@@ -14,13 +14,13 @@ import { EventScreen } from '../screens/EventScreen';
 import { StandMonthScreen } from '../screens/StandMonthScreen';
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView
         style={styles.contentContainer}>
         <View style={styles.info}>
-          <TouchableOpacity onPress={goToStand} style={styles.helpLink}>
+          <TouchableOpacity onPress={() => navigation.navigate('StandMonthScreen')} style={styles.helpLink}>
             <Image
               source={require('../assets/images/robot-dev.png')
               }
@@ -32,7 +32,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
         <View style={styles.info}>
-          <TouchableOpacity onPress={goToEvent} style={styles.helpLink}>
+          <TouchableOpacity onPress={() => navigation.navigate('Event')} style={styles.helpLink}>
             <Image
               source={require('../assets/images/robot-dev.png')
               }
@@ -52,13 +52,13 @@ HomeScreen.navigationOptions = {
   title: 'Home',
 };
 
-function goToStand() {
-  this.props.navigation.navigate('EventScreen');
-}
+// function goToStand() {
+//   this.props.navigation.navigate('EventScreen');
+// }
 
-function goToEvent() {
-  this.props.navigation.navigate('EventScreen');
-}
+// function goToEvent() {
+//   this.props.navigation.navigate('EventScreen');
+// }
 
 const styles = StyleSheet.create({
   container: {
