@@ -4,6 +4,7 @@ import {
     Platform,
     ScrollView,
     StyleSheet,
+    FormData,
     Text,
     TouchableOpacity,
     View,
@@ -13,7 +14,9 @@ import { ExpoLinksView } from '@expo/samples';
 export default function NewAboScreen() {
   return (
     <ScrollView style={styles.container}>
-      <Text>Test</Text>
+      <FormData>
+        
+      </FormData>
     </ScrollView>
   );
 }

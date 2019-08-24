@@ -19,7 +19,7 @@ export default function FinanceScreen() {
 }
 
 FinanceScreen.navigationOptions = {
-  title: 'Finanzen',
+  title: 'CO2',
 };
 
 const styles = StyleSheet.create({

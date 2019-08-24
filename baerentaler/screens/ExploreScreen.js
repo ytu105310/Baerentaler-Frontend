@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExpoLinksView } from '@expo/samples';
+import axios from 'axios';
 
 import {
   Image,
@@ -12,12 +13,16 @@ import {
 } from 'react-native';
 
 export default function ExploreScreen({ navigation }) {
+  function getUserAccount() {
+    return axios.get('http://bekb-marketplace.herokuapp.com/abos');
+  }
   return (
     <View style={styles.container}>
       <View style={styles.search}>
       </View>
+      <Text>{getUserAccount}</Text>
       <ScrollView style={styles.info}>
-        {/* {dataList.map(r =>  */}
+        {/* {getUserAccount.map(r =>  */}
           <View>
             {/* <TouchableOpacity onPress={() => navigation.navigate('InfoStand', {data: r})}> */}
             <TouchableOpacity onPress={() => navigation.navigate('InfoStand')}>
@@ -26,11 +31,11 @@ export default function ExploreScreen({ navigation }) {
               }
               style={styles.welcomeImage}
             />
-            <Text style={styles.title}>Titel der Nahrung oder des Verkäufers</Text>
+            {/* <Text style={styles.title}>{r}</Text> */}
             <Text>Wo?</Text>
           </TouchableOpacity>
           </View>
-        {/* )} */}
+         {/* )} */}
       </ScrollView>
     </View>
   );

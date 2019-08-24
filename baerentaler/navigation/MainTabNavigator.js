@@ -99,7 +99,7 @@ const FinanceStack = createStackNavigator(
 );
 
 FinanceStack.navigationOptions = {
-  tabBarLabel: 'Finance',
+  tabBarLabel: 'CO2',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

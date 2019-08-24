@@ -15,7 +15,7 @@ export default function StandMonthScreen() {
 }
 
 StandMonthScreen.navigationOptions = {
-  title: 'StandMonth',
+  title: 'StandStand vom Monat',
 };
 
 const styles = StyleSheet.create({

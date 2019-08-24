@@ -15,6 +15,11 @@ export default function InfoStandScreen({ navigation }) {
     const daten = navigation.getParam('data');
   return (
     <ScrollView style={styles.container}>
+        <Image
+            source={require('../assets/images/robot-dev.png')
+            }
+            style={styles.welcomeImage}
+            />
       {/* <Text>
           {daten.name}
       </Text>
@@ -26,8 +31,8 @@ export default function InfoStandScreen({ navigation }) {
       </Text>
       <Text>
           {daten.wann}
-      </Text>
-      <Button onPress={() => navigation.navigate('NewAbo')} /> */}
+      </Text> */}
+      <Button onPress={() => navigation.navigate('NewAbo')} title="Abo" />
     </ScrollView>
   );
 }
