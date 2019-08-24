@@ -4,8 +4,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import AboScreen from '../screens/AboScreen';
+import ExploreScreen from '../screens/ExploreScreen';
+import FinanceScreen from '../screens/FinanceScreen';
+import ProfilScreen from '../screens/ProfilScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -35,42 +37,83 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const ExploreStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Explore: ExploreScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+ExploreStack.navigationOptions = {
+  tabBarLabel: 'Explore',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
 };
 
-LinksStack.path = '';
+ExploreStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const AboStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Abo: AboScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+AboStack.navigationOptions = {
+  tabBarLabel: 'Abo',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 
-SettingsStack.path = '';
+AboStack.path = '';
+
+const FinanceStack = createStackNavigator(
+  {
+    Finance: FinanceScreen,
+  },
+  config
+);
+
+FinanceStack.navigationOptions = {
+  tabBarLabel: 'Finance',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+FinanceStack.path = '';
+
+const ProfilStack = createStackNavigator(
+  {
+    Profil: ProfilScreen,
+  },
+  config
+);
+
+ProfilStack.navigationOptions = {
+  tabBarLabel: 'Profil',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  ),
+};
+
+ProfilStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  ExploreStack,
+  AboStack,
+  FinanceStack,
+  ProfilStack
 });
 
 tabNavigator.path = '';
