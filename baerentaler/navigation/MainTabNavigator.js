@@ -9,6 +9,10 @@ import ExploreScreen from '../screens/ExploreScreen';
 import ProductScreen from '../screens/ProductScreen';
 import FinanceScreen from '../screens/FinanceScreen';
 import ProfilScreen from '../screens/ProfilScreen';
+import EventScreen from '../screens/EventScreen';
+import StandMonthScreen from '../screens/StandMonthScreen';
+import NewAboScreen from '../screens/NewAboScreen';
+import InfoStandScreen from '../screens/InfoStand';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -18,6 +22,8 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Event: EventScreen,
+    StandMonth: StandMonthScreen
   },
   config
 );
@@ -49,7 +55,14 @@ const ExploreStack = createStackNavigator(
 ExploreStack.navigationOptions = {
   tabBarLabel: 'Explore',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
   ),
 };
 
@@ -65,7 +78,14 @@ const AboStack = createStackNavigator(
 AboStack.navigationOptions = {
   tabBarLabel: 'Abo',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
   ),
 };
 
@@ -79,7 +99,7 @@ const FinanceStack = createStackNavigator(
 );
 
 FinanceStack.navigationOptions = {
-  tabBarLabel: 'Finance',
+  tabBarLabel: 'CO2',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -102,20 +122,33 @@ const ProfilStack = createStackNavigator(
 );
 
 ProfilStack.navigationOptions = {
-  tabBarLabel: 'Profil',
+  tabBarLabel: 'Händler',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
   ),
 };
 
 ProfilStack.path = '';
+
+const AppNavigator = createStackNavigator(
+  {
+    Event: EventScreen,
+  },
+);
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ExploreStack,
   AboStack,
   FinanceStack,
-  ProfilStack
+  ProfilStack,
 });
 
 tabNavigator.path = '';

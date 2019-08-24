@@ -90,11 +90,14 @@ export default class ExploreScreen extends React.Component {
 }
 
 ExploreScreen.navigationOptions = {
-  title: 'Explore',
+  title: 'Endtecken',
 };
 
 const styles = StyleSheet.create({
   container: {
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
     flex: 1,
   },
   searchField: {
