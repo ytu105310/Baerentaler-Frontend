@@ -1,20 +1,32 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
-  ScrollView,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   View,
+  Text,
+  Button,
 } from 'react-native';
+import Colors from '../constants/Colors';
 
 export default class HomeScreen extends React.Component {
+
+  pay = () => {
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView>
-        </ScrollView>
+        <View style={styles.balanceWrapper}>
+          <Text style={styles.balanceText}>Sie haben</Text>
+          <Text style={styles.balance}>32 BT</Text>
+        </View>
+        <View style={styles.payWrapper}>
+          <Button
+            onPress={this.pay}
+            title="Bezahlen"
+            color={Colors.tintColor} />
+        </View>
+        <View style={styles.chartWrapper}></View>
       </View>
     );
   }
@@ -27,16 +39,23 @@ HomeScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
-    marginLeft: 30,
-    marginRight: 30,
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
+  },
+  balanceWrapper: {
+    flex: 2,
+    backgroundColor: 'red',
+    alignItems: 'center',
   },
   title: {
     alignItems: "center"
   },
-  fonts: {
-    fontSize: 50
-  }
+  payWrapper: {
+    flex: 1,
+    backgroundColor: 'blue'
+  },
+  chartWrapper: {
+    flex: 2,
+    backgroundColor: 'green'
+  },
 });
