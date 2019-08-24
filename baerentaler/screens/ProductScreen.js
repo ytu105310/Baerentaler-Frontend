@@ -32,6 +32,9 @@ export default class ProductScreen extends React.Component {
                             <Text style={styles.text}>{navigation.getParam('producer')}</Text>
                             <Text style={styles.text}>{navigation.getParam('price')}</Text>
                             <Text style={styles.location}>Location</Text>
+                            <Image
+                                style={styles.itemImage}
+                                source={require('../assets/images/markt/standBrot.png') } />
                         </View>
                         <View style={styles.info}>
                             <Text style={styles.title}>Abonnieren</Text>
@@ -157,6 +160,7 @@ const styles = StyleSheet.create({
     },
     location: {
         marginTop: 25,
+        marginBottom: 20,
         fontSize: 30
     },
     item: {
