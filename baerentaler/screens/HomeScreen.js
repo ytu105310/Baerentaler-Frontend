@@ -19,7 +19,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.balanceWrapper}>
           <Text style={styles.balanceText}>Sie haben</Text>
-          <Text style={styles.balance}>32 BT</Text>
+          <Text style={styles.balance}>32 Bärentaler</Text>
         </View>
         <View style={styles.payWrapper}>
           <Button
