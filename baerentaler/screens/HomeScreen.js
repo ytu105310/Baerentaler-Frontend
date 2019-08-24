@@ -9,23 +9,25 @@ import {
   View,
 } from 'react-native';
 
-export default function FinanceScreen() {
-  return (
-    <View style={styles.container}>
-      <ScrollView>
-      </ScrollView>
-    </View>
-  );
+export default class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <ScrollView>
+        </ScrollView>
+      </View>
+    );
+  }
 }
 
-FinanceScreen.navigationOptions = {
-  title: 'CO2',
+HomeScreen.navigationOptions = {
+  title: 'Home',
 };
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
-    marginLeft:30,
+    marginLeft: 30,
     marginRight: 30,
     flex: 1,
     backgroundColor: '#fff',

@@ -1,22 +1,17 @@
 import React from 'react';
 import {
   Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
-  Button,
 } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 import axios from 'axios';
 
 export default function AboScreen({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <Text>Test123</Text>
-      <Text>{getAbos()}</Text>
       <ScrollView style={styles.info}>
         {data.map(r => 
           <View>
