@@ -1,5 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text, Image, TextInput, Button } from 'react-native';
+import { ScrollView, StyleSheet, View, Text, Image, TextInput, FlatList, Button } from 'react-native';
+
+import MapView from 'react-native-maps'
 
 export default class ProductScreen extends React.Component {
     constructor(props) {
@@ -25,10 +27,14 @@ export default class ProductScreen extends React.Component {
                 </View>
                 <View style={styles.scrollViewWrapper}>
                     <ScrollView>
-                        <View style={styles.info}>
+                        <View>
                             <Text style={styles.name}>{navigation.getParam('name')}</Text>
                             <Text style={styles.text}>{navigation.getParam('producer')}</Text>
                             <Text style={styles.text}>{navigation.getParam('price')}</Text>
+                            <Text style={styles.location}>Location</Text>
+                        </View>
+                        <View style={styles.info}>
+                            <Text style={styles.title}>Abonnieren</Text>
                             <View style={styles.subscribeWrapper}>
                                 <Text style={styles.text}>Jede </Text>
                                 <TextInput
@@ -51,6 +57,42 @@ export default class ProductScreen extends React.Component {
                                 style={styles.abonnieren}
                                 onPress={this.subscribe}
                                 title="Abonnieren" />
+                        <View>
+                            <Text style={styles.artikel}>Weitere Artikel:</Text>
+                            <FlatList
+                                data={[
+                                    {
+                                    key: '0',
+                                    name: 'Karotten',
+                                    producer: 'Max Knecht, Emmental',
+                                    price: '5BT pro kg',
+                                    imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+                                    },
+                                    {
+                                    key: '1',
+                                    name: 'Karotten',
+                                    producer: 'Max Knecht, Emmental',
+                                    price: '5BT pro kg',
+                                    imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+                                    },
+                                    {
+                                    key: '2',
+                                    name: 'Karotten',
+                                    producer: 'Max Knecht, Emmental',
+                                    price: '5BT pro kg',
+                                    imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
+                                    }
+                                ]} renderItem={({ item }) =>
+                                    <View style={styles.item}>
+                                        <Image
+                                        style={styles.itemImage}
+                                        source={{ uri: item.imageUrl }} />
+                                        <Text style={styles.itemName}>{item.name} von {item.producer}</Text>
+                                        <Text style={styles.itemPrice}>{item.price}</Text>
+                                    </View>
+                                }
+                                />
+                        </View>
                     </ScrollView>
                 </View>
             </View>
@@ -101,6 +143,39 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     info: {
-        marginBottom: 50
-    }
+        marginBottom: 15
+    },
+    title: {
+        marginTop: 30,
+        fontSize: 35,
+        marginBottom: 15
+    },
+    artikel: {
+        fontSize: 30,
+        marginTop: 50,
+        marginBottom: 10
+    },
+    location: {
+        marginTop: 25,
+        fontSize: 30
+    },
+    item: {
+      marginTop: 15,
+      marginHorizontal: 15,
+      padding: 10,
+      fontSize: 18,
+      backgroundColor: '#C4CCD3',
+    },
+    itemImage: {
+      width: '100%',
+      height: 130,
+    },
+    itemName: {
+      fontSize: 20,
+    },
+    itemPrice: {
+      fontSize: 15,
+      color: '#CC0033',
+    },
+
 });
