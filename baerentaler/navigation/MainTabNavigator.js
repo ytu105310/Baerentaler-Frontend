@@ -7,7 +7,7 @@ import AboScreen from '../screens/AboScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ProductScreen from '../screens/ProductScreen';
 import HomeScreen from '../screens/HomeScreen';
-import ProfilScreen from '../screens/ProfilScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -84,14 +84,14 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const ProfilStack = createStackNavigator(
+const ProfileStack = createStackNavigator(
   {
-    Profil: ProfilScreen,
+    Profile: ProfileScreen,
   },
   config
 );
 
-ProfilStack.navigationOptions = {
+ProfileStack.navigationOptions = {
   tabBarLabel: 'Händler',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -105,13 +105,13 @@ ProfilStack.navigationOptions = {
   ),
 };
 
-ProfilStack.path = '';
+ProfileStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ExploreStack,
   AboStack,
-  ProfilStack,
+  ProfileStack,
 });
 
 tabNavigator.path = '';

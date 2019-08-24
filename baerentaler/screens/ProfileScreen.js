@@ -1,17 +1,12 @@
 import React from 'react';
-import { ExpoLinksView } from '@expo/samples';
 
 import {
-  Image,
-  Platform,
   ScrollView,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 
-export default function ProfilScreen() {
+export default function ProfileScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.info}>
@@ -20,7 +15,7 @@ export default function ProfilScreen() {
   );
 }
 
-ProfilScreen.navigationOptions = {
+ProfileScreen.navigationOptions = {
   title: 'Händler',
 };
 
