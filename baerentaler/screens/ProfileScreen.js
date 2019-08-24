@@ -16,7 +16,7 @@ export default function ProfileScreen() {
 }
 
 ProfileScreen.navigationOptions = {
-  title: 'Händler',
+  title: 'Märit Bern',
   headerTintColor: '#CC0033'
 };
 

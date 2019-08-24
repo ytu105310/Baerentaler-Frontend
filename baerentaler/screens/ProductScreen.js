@@ -25,29 +25,32 @@ export default class ProductScreen extends React.Component {
                 </View>
                 <View style={styles.scrollViewWrapper}>
                     <ScrollView>
-                        <Text>{navigation.getParam('name')}</Text>
-                        <Text>{navigation.getParam('producer')}</Text>
-                        <Text>{navigation.getParam('price')}</Text>
-                        <View style={styles.subscribeWrapper}>
-                            <Text>Jede </Text>
-                            <TextInput
-                                textAlign='center'
-                                style={styles.inputField}
-                                onChangeText={(text) => this.setState({ everyXthWeek: text })}
-                                value={this.state.everyXthWeek} />
-                            <Text>te Woche</Text>
+                        <View style={styles.info}>
+                            <Text style={styles.name}>{navigation.getParam('name')}</Text>
+                            <Text style={styles.text}>{navigation.getParam('producer')}</Text>
+                            <Text style={styles.text}>{navigation.getParam('price')}</Text>
+                            <View style={styles.subscribeWrapper}>
+                                <Text style={styles.text}>Jede </Text>
+                                <TextInput
+                                    textAlign='center'
+                                    style={styles.inputField}
+                                    onChangeText={(text) => this.setState({ everyXthWeek: text })}
+                                    value={this.state.everyXthWeek} />
+                                <Text style={styles.text}>te Woche</Text>
+                            </View>
+                            <View style={styles.subscribeWrapper}>
+                                <TextInput
+                                    textAlign='right'
+                                    style={[styles.inputField, { width: 60 }]}
+                                    onChangeText={(text) => this.setState({ amount: text })}
+                                    value={this.state.amount} />
+                                <Text style={styles.text}>Gramm</Text>
+                            </View>
                         </View>
-                        <View style={styles.subscribeWrapper}>
-                            <TextInput
-                                textAlign='right'
-                                style={[styles.inputField, { width: 60 }]}
-                                onChangeText={(text) => this.setState({ amount: text })}
-                                value={this.state.amount} />
-                            <Text>Gramm</Text>
-                        </View>
-                        <Button
-                            onPress={this.subscribe}
-                            title="Abonnieren" />
+                            <Button
+                                style={styles.abonnieren}
+                                onPress={this.subscribe}
+                                title="Abonnieren" />
                     </ScrollView>
                 </View>
             </View>
@@ -73,6 +76,9 @@ const styles = StyleSheet.create({
     },
     scrollViewWrapper: {
         flex: 4,
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 20
     },
     subscribeWrapper: {
         flex: 1,
@@ -80,9 +86,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     inputField: {
-        height: 30,
+        height: 20,
         width: 20,
-        borderColor: 'gray',
-        borderWidth: 2,
+        borderColor: 'rgba(84, 91, 104, 0.2)',
+        borderWidth: 1,
+        marginRight: 5,
+        borderRadius: 5
+    },
+    name: {
+        fontSize: 50,
+        marginBottom: 20
+    },
+    text: {
+        fontSize: 20
+    },
+    info: {
+        marginBottom: 50
     }
 });
