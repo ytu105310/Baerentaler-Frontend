@@ -14,9 +14,9 @@ import { ExpoLinksView } from '@expo/samples';
 export default function NewAboScreen() {
   return (
     <ScrollView style={styles.container}>
-      <FormData>
+      {/* <FormData>
         
-      </FormData>
+      </FormData> */}
     </ScrollView>
   );
 }

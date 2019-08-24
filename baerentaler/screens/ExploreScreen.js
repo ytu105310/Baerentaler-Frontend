@@ -13,30 +13,8 @@ import {
 } from 'react-native';
 
 export default function ExploreScreen({ navigation }) {
-  function getUserAccount() {
-    return axios.get('http://bekb-marketplace.herokuapp.com/abos');
-  }
   return (
     <View style={styles.container}>
-      <View style={styles.search}>
-      </View>
-      <Text>{getUserAccount}</Text>
-      <ScrollView style={styles.info}>
-        {/* {getUserAccount.map(r =>  */}
-          <View>
-            {/* <TouchableOpacity onPress={() => navigation.navigate('InfoStand', {data: r})}> */}
-            <TouchableOpacity onPress={() => navigation.navigate('InfoStand')}>
-            <Image
-              source={require('../assets/images/robot-dev.png')
-              }
-              style={styles.welcomeImage}
-            />
-            {/* <Text style={styles.title}>{r}</Text> */}
-            <Text>Wo?</Text>
-          </TouchableOpacity>
-          </View>
-         {/* )} */}
-      </ScrollView>
     </View>
   );
 }

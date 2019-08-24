@@ -21,7 +21,7 @@ export default function ProfilScreen() {
 }
 
 ProfilScreen.navigationOptions = {
-  title: 'Profil',
+  title: 'Händler',
 };
 
 const styles = StyleSheet.create({

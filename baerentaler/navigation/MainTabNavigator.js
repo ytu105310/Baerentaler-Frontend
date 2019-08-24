@@ -122,7 +122,7 @@ const ProfilStack = createStackNavigator(
 );
 
 ProfilStack.navigationOptions = {
-  tabBarLabel: 'Profil',
+  tabBarLabel: 'Händler',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

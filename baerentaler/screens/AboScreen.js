@@ -10,17 +10,15 @@ import {
   Button,
 } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import axios from 'axios';
 
 export default function AboScreen({ navigation }) {
-  function getAbos() {
-    return axios.get('http://bekb-marketplace.herokuapp.com/abos');
-  }
   return (
     <ScrollView style={styles.container}>
       <Text>Test123</Text>
-      <Text>{getAbos}</Text>
+      <Text>{getAbos()}</Text>
       <ScrollView style={styles.info}>
-        {/* {getAbos.map(r =>  */}
+        {data.map(r => 
           <View>
             <Image
               source={require('../assets/images/robot-dev.png')
@@ -33,7 +31,7 @@ export default function AboScreen({ navigation }) {
             <Text>Wann?</Text>
             {/* <Button  onPress={deleteAbo(r.index)} title="Abo löschen" /> */}
           </View>
-        {/* )} */}
+        )}
       </ScrollView>
     </ScrollView>
   );
