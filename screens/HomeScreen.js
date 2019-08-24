@@ -64,6 +64,11 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.payText}>Bezahlen</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.latestTransactionsWrapper}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Transactions')}>
+            <Text style={styles.latestTransactionsText}>Letzte Transaktionen</Text>
+          </TouchableOpacity>
+        </View>
         <LineChart
           data={{
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -134,7 +139,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   balanceWrapper: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -145,6 +150,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
   },
   payWrapper: {
+    marginTop: -20,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -168,8 +174,17 @@ const styles = StyleSheet.create({
   payText: {
     fontSize: 20,
   },
+  latestTransactionsWrapper: {
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: -33,
+  },
+  latestTransactionsText: {
+    textDecorationLine: 'underline',
+  },
   chartWrapper: {
-    flex: 2,
+    flex: 4,
     justifyContent: 'center',
     alignItems: 'center'
   },

@@ -7,6 +7,7 @@ import AboScreen from '../screens/AboScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ProductScreen from '../screens/ProductScreen';
 import HomeScreen from '../screens/HomeScreen';
+import TransactionsScreen from '../screens/TransactionsScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -22,7 +23,7 @@ const ExploreStack = createStackNavigator(
 );
 
 ExploreStack.navigationOptions = {
-  tabBarLabel: 'Explore',
+  tabBarLabel: 'Entdecken',
   tabBarOptions: {
     activeTintColor: '#CC0033',
   },
@@ -55,6 +56,7 @@ AboStack.path = '';
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Transactions: TransactionsScreen,
   },
   config
 );
