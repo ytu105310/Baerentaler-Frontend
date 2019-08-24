@@ -4,6 +4,7 @@ import {
   View,
   Text,
   Button,
+  Image
 } from 'react-native';
 import Colors from '../constants/Colors';
 
@@ -26,7 +27,9 @@ export default class HomeScreen extends React.Component {
             title="Bezahlen"
             color={Colors.tintColor} />
         </View>
-        <View style={styles.chartWrapper}></View>
+        <View style={styles.chartWrapper}>
+        <Image style={styles.chart} source={require('../assets/images/chart.png')} />
+        </View>
       </View>
     );
   }
@@ -43,19 +46,28 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   balanceWrapper: {
-    flex: 2,
-    backgroundColor: 'red',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  title: {
-    alignItems: "center"
+  balanceText: {
+    fontSize: 20,
+  },
+  balance: {
+    fontSize: 45,
   },
   payWrapper: {
     flex: 1,
-    backgroundColor: 'blue'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   chartWrapper: {
     flex: 2,
-    backgroundColor: 'green'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
+  chart: {
+    width: '80%',
+    height: '80%',
+  }
 });
