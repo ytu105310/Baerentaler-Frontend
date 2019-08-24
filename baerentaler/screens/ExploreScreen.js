@@ -74,7 +74,7 @@ export default class ExploreScreen extends React.Component {
             },
           ]} renderItem={({ item }) =>
             <View style={styles.item}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Product')}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Product', item)}>
                 <Image
                   style={styles.itemImage}
                   source={{ uri: item.imageUrl }} />
