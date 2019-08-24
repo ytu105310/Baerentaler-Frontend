@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image, Button } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class ExploreScreen extends React.Component {
   state = {
@@ -73,11 +74,13 @@ export default class ExploreScreen extends React.Component {
             },
           ]} renderItem={({ item }) =>
             <View style={styles.item}>
-              <Image
-                style={styles.itemImage}
-                source={{ uri: item.imageUrl }} />
-              <Text style={styles.itemName}>{item.name} von {item.producer}</Text>
-              <Text style={styles.itemPrice}>{item.price}</Text>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Product')}>
+                <Image
+                  style={styles.itemImage}
+                  source={{ uri: item.imageUrl }} />
+                <Text style={styles.itemName}>{item.name} von {item.producer}</Text>
+                <Text style={styles.itemPrice}>{item.price}</Text>
+              </TouchableOpacity>
             </View>
           }
         />
@@ -93,7 +96,6 @@ ExploreScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22
   },
   searchField: {
     height: 40,
@@ -103,7 +105,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#CC0033',
   },
   item: {
-    margin: 10,
+    marginTop: 15,
+    marginHorizontal: 15,
     padding: 10,
     fontSize: 18,
     backgroundColor: '#C4CCD3',

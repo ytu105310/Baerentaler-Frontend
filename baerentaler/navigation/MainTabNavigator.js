@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import AboScreen from '../screens/AboScreen';
 import ExploreScreen from '../screens/ExploreScreen';
+import ProductScreen from '../screens/ProductScreen';
 import FinanceScreen from '../screens/FinanceScreen';
 import ProfilScreen from '../screens/ProfilScreen';
 
@@ -40,6 +41,7 @@ HomeStack.path = '';
 const ExploreStack = createStackNavigator(
   {
     Explore: ExploreScreen,
+    Product: ProductScreen,
   },
   config
 );
