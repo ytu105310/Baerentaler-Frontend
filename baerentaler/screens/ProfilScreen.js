@@ -22,6 +22,7 @@ export default function ProfilScreen() {
 
 ProfilScreen.navigationOptions = {
   title: 'Händler',
+  headerTintColor: '#CC0033'
 };
 
 const styles = StyleSheet.create({

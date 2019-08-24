@@ -24,6 +24,9 @@ const ExploreStack = createStackNavigator(
 
 ExploreStack.navigationOptions = {
   tabBarLabel: 'Explore',
+  tabBarOptions: {
+    activeTintColor: '#CC0033',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -47,6 +50,9 @@ const AboStack = createStackNavigator(
 
 AboStack.navigationOptions = {
   tabBarLabel: 'Abo',
+  tabBarOptions: {
+    activeTintColor: '#CC0033',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -70,14 +76,13 @@ const FinanceStack = createStackNavigator(
 
 FinanceStack.navigationOptions = {
   tabBarLabel: 'CO2',
+  tabBarOptions: {
+    activeTintColor: '#CC0033',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={focused ? '../assets/images/active/home.svg' : '../assets/images/inactive/home.svg'}
     />
   ),
 };
@@ -93,9 +98,13 @@ const ProfilStack = createStackNavigator(
 
 ProfilStack.navigationOptions = {
   tabBarLabel: 'Händler',
+  tabBarOptions: {
+    activeTintColor: '#CC0033',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
+      color={'#CC0033'}
       name={
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`

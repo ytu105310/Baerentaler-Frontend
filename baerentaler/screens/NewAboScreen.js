@@ -23,6 +23,7 @@ export default function NewAboScreen() {
 
 NewAboScreen.navigationOptions = {
   title: 'New Abo',
+  headerTintColor: '#CC0033'
 };
 
 const styles = StyleSheet.create({

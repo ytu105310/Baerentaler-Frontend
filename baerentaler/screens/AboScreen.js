@@ -39,6 +39,7 @@ export default function AboScreen({ navigation }) {
 
 AboScreen.navigationOptions = {
   title: 'Abos',
+  headerTintColor: '#CC0033'
 };
 
 function deleteAbo(index){

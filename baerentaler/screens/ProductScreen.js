@@ -16,7 +16,8 @@ export default class FinanceScreen extends React.Component {
 }
 
 FinanceScreen.navigationOptions = {
-    title: 'bla',
+    title: 'Product',
+    headerTintColor: '#CC0033'
 };
 
 const styles = StyleSheet.create({

@@ -20,6 +20,7 @@ export default function FinanceScreen() {
 
 FinanceScreen.navigationOptions = {
   title: 'CO2',
+  headerTintColor: '#CC0033'
 };
 
 const styles = StyleSheet.create({
