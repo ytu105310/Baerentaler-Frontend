@@ -64,39 +64,41 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.payText}>Bezahlen</Text>
           </TouchableOpacity>
         </View>
-        <LineChart
-          data={{
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-            datasets: [{
-              data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
-              ]
-            }]
-          }}
-          width={Dimensions.get('window').width} // from react-native
-          height={220}
-          yAxisLabel={'$'}
-          chartConfig={{
-            backgroundColor: '#e26a00',
-            backgroundGradientFrom: '#fb8c00',
-            backgroundGradientTo: '#ffa726',
-            decimalPlaces: 2, // optional, defaults to 2dp
-            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            style: {
+        <View style={styles.chartForm}>
+          <LineChart
+            data={{
+              labels: ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun'],
+              datasets: [{
+                data: [
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30,
+                  Math.random() * 30
+                ]
+              }]
+            }}
+            width={290} // from react-native
+            height={220}
+            yAxisLabel={'Kg '}
+            chartConfig={{
+              backgroundColor: '#C4CCD3',
+              backgroundGradientFrom: '#C4CCD3',
+              backgroundGradientTo: '#C4CCD3',
+              decimalPlaces: 2, // optional, defaults to 2dp
+              color: (opacity = 1) => `rgba(204, 0, 51, ${opacity})`,
+              style: {
+                borderRadius: 16
+              }
+            }}
+            bezier
+            style={{
+              marginVertical: 8,
               borderRadius: 16
-            }
-          }}
-          bezier
-          style={{
-            marginVertical: 8,
-            borderRadius: 16
-          }}
-        />
+            }}
+          />
+        </View>
       </View>
     );
   }
@@ -168,13 +170,8 @@ const styles = StyleSheet.create({
   payText: {
     fontSize: 20,
   },
-  chartWrapper: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center'
+  chartForm: {
+    marginLeft: 15,
+    marginRight: 15
   },
-  chart: {
-    width: '80%',
-    height: '80%',
-  }
 });
