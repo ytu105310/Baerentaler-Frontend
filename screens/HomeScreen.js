@@ -64,6 +64,9 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.payText}>Bezahlen</Text>
           </TouchableOpacity>
         </View>
+        <Text style={styles.titelChart}>
+          CO2 Einsparung
+        </Text>
         <View style={styles.chartForm}>
           <LineChart
             data={{
@@ -80,7 +83,7 @@ export default class HomeScreen extends React.Component {
               }]
             }}
             width={290} // from react-native
-            height={220}
+            height={180}
             yAxisLabel={'Kg '}
             chartConfig={{
               backgroundColor: '#C4CCD3',
@@ -186,7 +189,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   chartForm: {
-    marginLeft: 15,
-    marginRight: 15
+    marginLeft: 15
   },
+  titelChart: {
+    marginBottom: 10,
+    fontSize: 30,
+    textAlign: "center"
+  }
 });
