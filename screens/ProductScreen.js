@@ -24,7 +24,7 @@ export default class ProductScreen extends React.Component {
     }
 
     componentDidMount() {
-        return fetch('http://localhost:3000/products/' + this.props.navigation.getParam('_id'))
+        return fetch('http://localhost:3000/products/' + this.props.navigation.getParam('producerId'))
             .then((response) => response.json())
             .then((responseJson) => {
                 let productsFromSameProducer = [];
