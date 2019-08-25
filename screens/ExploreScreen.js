@@ -1,90 +1,74 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 export default class ExploreScreen extends React.Component {
   state = {
+    hasLoaded: false,
     search: '',
+    products: [
+      {
+        key: '0',
+        name: 'Am Laden',
+        price: 'Einen Moment...',
+      }
+    ]
   };
 
   updateSearch = search => {
     this.setState({ search });
   };
 
-  render() {
-    const { search } = this.state;
+  goToProduct = (item) => {
+    if (this.state.hasLoaded) {
+      console.log("sdlfk")
+      this.props.navigation.navigate('Product', item);
+    } else {
+      console.log("hàä")
+    }
+  }
 
+  componentDidMount() {
+    return fetch('http://localhost:3000/products')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let products = [];
+        products = responseJson;
+        for (let i = 0; i < products.length; i++) {
+          products[i].key = products[i]._id;
+        }
+        setTimeout(() => {
+          this.setState({ products: products });
+          this.setState({ hasLoaded: true });
+        }, 400);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  render() {
     return (
-      <View>
+      <ScrollView>
         <SearchBar
           placeholder="Type Here..."
           onChangeText={this.updateSearch}
-          value={search} />
+          value={this.state.search} />
         <FlatList
-          data={[
-            {
-              key: '0',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '1',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '2',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '3',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '4',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '5',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '6',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-          ]} renderItem={({ item }) =>
+          data={this.state.products} renderItem={({ item }) =>
             <View style={styles.item}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Product', item)}>
+              <TouchableOpacity onPress={() => this.goToProduct(item)}>
                 <Image
                   style={styles.itemImage}
                   source={{ uri: item.imageUrl }} />
-                <Text style={styles.itemName}>{item.name} von {item.producer}</Text>
+                <Text style={styles.itemName}>{item.name} {item.producer ? 'von' : ''} {item.producer}</Text>
                 <Text style={styles.itemPrice}>{item.price}</Text>
               </TouchableOpacity>
             </View>
           }
         />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -95,13 +79,6 @@ ExploreScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
-  searchField: {
-    height: 40,
-    marginHorizontal: 30,
-    borderColor: 'gray',
-    borderWidth: 2,
-    backgroundColor: '#CC0033',
-  },
   item: {
     marginTop: 15,
     marginHorizontal: 15,

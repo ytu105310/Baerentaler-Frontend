@@ -3,92 +3,54 @@ import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react
 
 export default class AboScreen extends React.Component {
 
+  state = {
+    abos: [{
+      key: '0',
+      name: 'Laden',
+      price: 'Bitte warten...',
+    }]
+  }
+
   removeSubscription = () => {
 
   }
 
+  componentDidMount() {
+    return fetch('http://localhost:3000/abos')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let abos = [];
+        abos = responseJson;
+        for (let i = 0; i < abos.length; i++) {
+          abos[i].key = abos[i]._id;
+        }
+        setTimeout(() => {
+          this.setState({ abos: abos });
+        }, 400);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   render() {
     return (
-      <View>
-        <FlatList
-          data={[
-            {
-              key: '0',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              everyXthWeek: '2',
-              amount: '200g',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '1',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              everyXthWeek: '2',
-              amount: '200g',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '2',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              everyXthWeek: '2',
-              amount: '200g',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '3',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              everyXthWeek: '2',
-              amount: '200g',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '4',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              everyXthWeek: '2',
-              amount: '200g',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '5',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              everyXthWeek: '2',
-              amount: '200g',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-            {
-              key: '6',
-              name: 'Karotten',
-              producer: 'Max Knecht, Emmental',
-              price: '5BT pro kg',
-              everyXthWeek: '2',
-              amount: '200g',
-              imageUrl: 'https://www.gesundheit.de/sites/default/files/styles/crop_content/public/2016-03/karotte.jpg?itok=MrGiGvSb'
-            },
-          ]} renderItem={({ item }) =>
-            <View style={styles.item}>
-              <View>
+      <FlatList
+        data={this.state.abos} renderItem={({ item }) =>
+          <View style={styles.item}>
+            <View>
+              {item.everyXthWeek &&
                 <Text>Jede {item.everyXthWeek}te Woche {item.amount}</Text>
-                <Text style={styles.itemName}>{item.name} von {item.producer}</Text>
-                <Text style={styles.itemPrice}>{item.price}</Text>
-              </View>
-              <TouchableOpacity style={styles.button} onPress={this.removeSubscription}>
-                <Image style={styles.icon} source={require('../assets/images/minus.png')} />
-              </TouchableOpacity>
+              }
+              <Text style={styles.itemName}>{item.name} {item.producer ? 'von' : ''} {item.producer}</Text>
+              <Text style={styles.itemPrice}>{item.price}</Text>
             </View>
-          }
-        />
-      </View>
+            <TouchableOpacity style={styles.button} onPress={this.removeSubscription}>
+              <Image style={styles.icon} source={require('../assets/images/minus.png')} />
+            </TouchableOpacity>
+          </View>
+        }
+      />
     );
   }
 }
