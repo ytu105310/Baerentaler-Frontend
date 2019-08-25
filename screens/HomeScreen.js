@@ -16,6 +16,7 @@ export default class HomeScreen extends React.Component {
 
   state = {
     balance: 32,
+    carbonSavings: [],
     overlayIsVisible: false
   }
 
@@ -32,6 +33,23 @@ export default class HomeScreen extends React.Component {
 
   refuse = () => {
     this.setState({ overlayIsVisible: false });
+  }
+
+  componentDidMount() {
+    return fetch('http://localhost:3000/carbonSavings')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let carbonSavings = [];
+        responseJson.forEach(element => {
+          carbonSavings.push(element.savings);
+        });
+        setTimeout(() => {
+          this.setState({ carbonSavings: carbonSavings });
+        }, 400);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   render() {
@@ -70,16 +88,9 @@ export default class HomeScreen extends React.Component {
         <View style={styles.chartWrapper}>
           <LineChart
             data={{
-              labels: ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun'],
+              labels: ['Mrz', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug'],
               datasets: [{
-                data: [
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30,
-                  Math.random() * 30
-                ]
+                data: this.state.carbonSavings
               }]
             }}
             width={290} // from react-native
