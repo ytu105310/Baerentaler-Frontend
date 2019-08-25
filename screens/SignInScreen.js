@@ -31,6 +31,7 @@ export default class SignInScreen extends React.Component {
           <Text style={styles.text}>Passwort:</Text>
           <TextInput
             style={styles.textField}
+            secureTextEntry={true}
             onChangeText={(text) => this.setState({ text })} />
         </View>
         <View style={styles.button}>
@@ -42,7 +43,7 @@ export default class SignInScreen extends React.Component {
   }
 
   _signInAsync = async () => {
-    await AsyncStorage.setItem('userToken', 'abc');
+    //await AsyncStorage.setItem('userToken', 'abc');
     this.props.navigation.navigate('App');
   };
 }
@@ -67,9 +68,8 @@ const styles = StyleSheet.create({
   textField: {
     fontSize: 18,
     height: 50,
-    borderColor: 'gray',
+    borderColor: '#CC0033',
     borderWidth: 2,
-    backgroundColor: '#CC0033',
   },
   button: {
     marginTop: 30,
