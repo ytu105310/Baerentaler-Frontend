@@ -43,9 +43,7 @@ export default class HomeScreen extends React.Component {
         responseJson.forEach(element => {
           carbonSavings.push(element.savings);
         });
-        setTimeout(() => {
-          this.setState({ carbonSavings: carbonSavings });
-        }, 400);
+        this.setState({ carbonSavings: carbonSavings });
       })
       .catch((error) => {
         console.error(error);
