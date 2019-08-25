@@ -110,7 +110,7 @@ export default class HomeScreen extends React.Component {
               borderRadius: 16
             }}
           />
-          <Text>Gesparrte CO₂-Emissionen</Text>
+          <Text>Eingesparte CO₂-Emissionen</Text>
         </View>
       </View>
     );
