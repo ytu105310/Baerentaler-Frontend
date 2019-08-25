@@ -22,10 +22,7 @@ export default class ExploreScreen extends React.Component {
 
   goToProduct = (item) => {
     if (this.state.hasLoaded) {
-      console.log("sdlfk")
       this.props.navigation.navigate('Product', item);
-    } else {
-      console.log("hàä")
     }
   }
 
