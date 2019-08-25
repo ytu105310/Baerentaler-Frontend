@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text, Image, TextInput, FlatList, Button } from 'react-native';
+import { ScrollView, StyleSheet, View, Text, Image, TextInput, FlatList, Button, TouchableOpacity } from 'react-native';
 import Colors from '../constants/Colors';
 
 export default class ProductScreen extends React.Component {
@@ -98,13 +98,15 @@ export default class ProductScreen extends React.Component {
                         <Text style={styles.similarText}>Weitere Artikel:</Text>
                         <FlatList
                             data={this.state.productsFromSameProducer} renderItem={({ item }) =>
-                                <View style={styles.item}>
-                                    <Image
-                                        style={styles.itemImage}
-                                        source={{ uri: item.imageUrl }} />
-                                    <Text style={styles.itemName}>{item.name} {item.producer ? 'von' : ''} {item.producer}</Text>
-                                    <Text style={styles.itemPrice}>{item.price}</Text>
-                                </View>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Product', item)}>
+                                    <View style={styles.item}>
+                                        <Image
+                                            style={styles.itemImage}
+                                            source={{ uri: item.imageUrl }} />
+                                        <Text style={styles.itemName}>{item.name} {item.producer ? 'von' : ''} {item.producer}</Text>
+                                        <Text style={styles.itemPrice}>{item.price}</Text>
+                                    </View>
+                                </TouchableOpacity>
                             }
                         />
                     </View>
