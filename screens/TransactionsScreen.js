@@ -5,44 +5,29 @@ import Colors from '../constants/Colors';
 export default class TransactionsScreen extends React.Component {
 
     state = {
-        transactions: [
-            {
-                title: 'August', data: [{
-                    name: 'Karotten',
-                    producer: 'Max Mustermann',
-                    balanceDifference: -20,
-                    date: '02.08.2019',
-                }, {
-                    name: 'Karotten',
-                    producer: 'Max Mustermann',
-                    balanceDifference: -20,
-                    date: '02.08.2019',
-                }, {
-                    name: 'Karotten',
-                    producer: 'Max Mustermann',
-                    balanceDifference: -20,
-                    date: '02.08.2019',
-                }]
-            },
-            {
-                title: 'Juli', data: [{
-                    name: 'Karotten',
-                    producer: 'Max Mustermann',
-                    balanceDifference: -20,
-                    date: '02.08.2019',
-                }, {
-                    name: 'Karotten',
-                    producer: 'Max Mustermann',
-                    balanceDifference: -20,
-                    date: '02.08.2019',
-                }, {
-                    name: 'Karotten',
-                    producer: 'Max Mustermann',
-                    balanceDifference: -20,
-                    date: '02.08.2019',
-                }]
-            },
-        ]
+        transactions: [{
+            title: 'Laden', data: [{
+                name: 'Einen Augenblick...',
+            }]
+        }]
+    }
+
+    componentDidMount() {
+        return fetch('http://localhost:3000/transactions')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                let transactions = [];
+                transactions = responseJson;
+                for (let i = 0; i < transactions.length; i++) {
+                    transactions[i].key = transactions[i]._id;
+                }
+                setTimeout(() => {
+                    this.setState({ transactions: transactions });
+                }, 400);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     render() {
@@ -54,7 +39,7 @@ export default class TransactionsScreen extends React.Component {
                         return (
                             <View style={styles.itemContainer}>
                                 <View style={styles.leftSide}>
-                                    <Text style={styles.title}>{item.name} von {item.producer}</Text>
+                                    <Text style={styles.title}>{item.name} {item.producer ? 'von' : ''} {item.producer}</Text>
                                     <Text style={styles.date}>{item.date}</Text>
                                 </View>
                                 <View style={styles.rightSide}>
