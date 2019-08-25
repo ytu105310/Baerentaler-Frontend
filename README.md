@@ -4,18 +4,18 @@
 
 ```bash
 npm install
-cd baerentaler
+cd Baerentaler-Frontend
 npm start
 ```
 
+## Mobilephone
 Install Expo on mobilephone
 
 
-## Android
+#### Android
 
-Hold your Camera in Expo in front of the QR Code
+Hold your camera in camera app in front of the QR-Code
 
+#### IOS
 
-## IOS
-
-Hold your Camera in Camera App in front of the QR Code
+Hold your camera in camera app in front of the QR-Code
